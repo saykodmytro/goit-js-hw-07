@@ -43,16 +43,11 @@ function instanceCreat(src, alt) {
     /></div>`);
   imgModal.show();
 
-  const elem = imgModal.element();
-  elem.addEventListener("click", onClose);
-  function onClose() {
-    imgModal.close();
-    elem.removeEventListener("click", onClose);
-  }
   document.addEventListener("keydown", closeModalEsc);
   function closeModalEsc(e) {
     if (e.code === "Escape") {
       imgModal.close();
+      document.removeEventListener("keydown", closeModalEsc);
     }
   }
 }
