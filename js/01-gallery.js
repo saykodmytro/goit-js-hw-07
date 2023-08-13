@@ -1,9 +1,7 @@
 import { galleryItems } from "./gallery-items.js";
 
 const gallery = document.querySelector(".gallery");
-
 gallery.insertAdjacentHTML("beforeend", createGallery(galleryItems));
-
 gallery.addEventListener("click", onClick);
 
 function createGallery(array) {
@@ -22,12 +20,12 @@ function createGallery(array) {
     })
     .join("");
 }
+
 function onClick(evt) {
   evt.preventDefault();
   if (!evt.target.classList.contains("gallery__image")) {
     return;
   }
-
   const source = evt.target.dataset.source;
   const alt = evt.target.alt;
 
